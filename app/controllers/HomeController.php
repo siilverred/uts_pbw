@@ -1,5 +1,3 @@
-HomeController.php
-
 <?php
 class HomeController
 {
