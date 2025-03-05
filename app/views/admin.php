@@ -52,7 +52,7 @@
             </tbody>
         </table>
 
-        <h2>All Donations</h2>
+        <h2>All Savings</h2>
         <table class="admin-table">
             <thead>
                 <tr>
@@ -64,13 +64,13 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($donations as $donation): ?>
+                <?php foreach ($savings as $saving): ?>
                     <tr>
-                        <td><?php echo $donation['id']; ?></td>
-                        <td><?php echo htmlspecialchars($donation['name']); ?></td>
-                        <td>Rp<?php echo number_format($donation['amount']); ?></td>
-                        <td><?php echo htmlspecialchars($donation['message']); ?></td>
-                        <td><?php echo $donation['created_at']; ?></td>
+                        <td><?php echo $saving['id']; ?></td>
+                        <td><?php echo htmlspecialchars($saving['name']); ?></td>
+                        <td>Rp<?php echo number_format($saving['amount']); ?></td>
+                        <td><?php echo htmlspecialchars($saving['message']); ?></td>
+                        <td><?php echo $saving['created_at']; ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
