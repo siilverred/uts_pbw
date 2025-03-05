@@ -1,5 +1,3 @@
-home.php
-
 <!DOCTYPE html>
 <html>
 
