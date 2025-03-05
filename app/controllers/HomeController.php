@@ -17,8 +17,15 @@ class HomeController
         require_once 'app/helpers/AuthMiddleware.php';
         AuthMiddleware::isAuthenticated();
 
-        $donations = $this->donationModel->getAll();
+        $userId = AuthMiddleware::getUserId();
         $isAdmin = $_SESSION['user_role'] === 'admin';
+
+        if ($isAdmin) {
+            $donations = $this->donationModel->getAll(); // Admin melihat semua data
+        } else {
+            $donations = $this->donationModel->getByUserId($userId); // User hanya melihat data miliknya
+        }
+
         require_once 'app/views/home.php';
     }
 
