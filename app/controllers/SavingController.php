@@ -14,6 +14,9 @@ class SavingController
 
     public function index()
     {
+        require_once 'app/helpers/AuthMiddleware.php';
+        $userId = AuthMiddleware::getUserId(); // Menggunakan AuthMiddleware untuk mendapatkan user ID
+
         if (!isset($_SESSION['user_id'])) {
             header('Location: login');
             exit();
@@ -22,9 +25,8 @@ class SavingController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $amount = $_POST['amount'];
             $message = $_POST['message'];
-            $user_id = $_SESSION['user_id'];
 
-            if ($this->savingModel->create($user_id, $amount, $message)) {
+            if ($this->savingModel->create($userId, $amount, $message)) { // Menggunakan $userId dari AuthMiddleware
                 header('Location: home');
                 exit();
             }
