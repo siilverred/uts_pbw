@@ -22,7 +22,7 @@ class AuthMiddleware {
         }
     }
 
-    public static function getUserId() { // Ditambahkan dari Code 2
+    public static function getUserId() { 
         self::isAuthenticated();
         return $_SESSION['user_id'];
     }
